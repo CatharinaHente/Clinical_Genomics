@@ -8,11 +8,11 @@ https://doi.org/10.1038/s41522-024-00567-9
 
 Qin, Y., Tong, X., Mei, WJ. et al. Consistent signatures in the human gut microbiome of old- and young-onset colorectal cancer. Nat Commun 15, 3396 (2024). 
 https://doi.org/10.1038/s41467-024-47523-x
-(dataset upon request)
+(dataset publically available)
 
 Tito, R.Y., Verbandt, S., Aguirre Vazquez, M. et al. Microbiome confounders and quantitative profiling challenge predicted microbial targets in colorectal cancer development. Nat Med 30, 1339–1348 (2024). 
 https://doi.org/10.1038/s41591-024-02963-2
-(dataset publically available)
+(dataset upon request)
 
 Adlung, L., Elinav, E., Greten, T.F. et al. Microbiome genomics for cancer prediction. Nat Cancer 1, 379–381 (2020). 
 https://doi.org/10.1038/s43018-020-0059-x
