@@ -1,0 +1,61 @@
+Study #1 -  A population-scale analysis of 36 gut microbiome studies reveals universal species signatures for common diseases
+-----------------------------------------------------------------------------------------------------------------------------
+about the Dataset:
+[...]
+-----------------------------------------------------------------------------------------------------------------------------
+Data Preprocessing/Transformation:
+fastp - applied to Raw Metagenomic Data; removal of low-quality (quality score <20), low-complexity (more than 5 'N' bases) and adapter-containing reads (shorter than 45 bases)
+Bowtie2 - removal of non-human reads (mapping against reference human genome)
+MetaPhlAn 4 - conversion of reads into species-level genome bins (SGBs) 
+arcsine-aquare root transformation - proportional comparability across studies
+
+Feature Selection: 
+disease-associated microbial signatures - multivariate MaAsLin 2 analysis (q-value < 0.05; adjustments for demographic confounders (age, sex, BMI))
+species-level abundance profiles - Jensen-Shannon divergence & PAM clustering (determination of optimal clusters) 
+
+Dataset Division (Training, Testing): 
+10x Cross Validation
+
+ML Approach:
+Random Forest Model - analysis of disease correlation with microbial taya to estimate GMHI (Gut Microbiome Health Index); averaging predictions from 10 classifiers
+LASSO Analysis - fine-tuning and constrain features
+
+Validation:
+Wilcoxon rank-sum tests & Benjamini Hochberg adjustment for q-values
+ROC (receiver operating characteristic) analysis (R pROC package); main measure: AUC (area under curve)
+
+
+
+Study #2 - Consistent signatures in the human gut microbiome of old- and young-onset colorectal cancer
+------------------------------------------------------------------------------------------------------
+about the Dataset: 
+[...]
+------------------------------------------------------------------------------------------------------
+[...]
+
+
+
+Study #3 - Microbiome confounders and quantitative profiling challenge predicted microbial targets in colorectal cancer development
+-----------------------------------------------------------------------------------------------------------------------------------
+about the Dataset:
+[...]
+-----------------------------------------------------------------------------------------------------------------------------------
+Data Preprocessing/Transformation:
+Relative Microbiome Matrix (RMP) - 
+CLR (center-log-ratio) Transformation - 
+
+Feature Selection: 
+Biomarker Selection - relevant microbial taxa at species and genus level were picked out
+Dirichlet Multinomial Model - enterotyping/determine community types (Bact1, Bact2, Prev, and Rum clusters)
+Spearman and Kendall's tau correlations - determination of association across species abundances, fecal calprotectin, moisture content
+
+Dataset Division (Training, Testing): 
+subdivision into 2 cohorts - LCPM Project, FGFP Project
+1. LCPM Project - cohort with data from patients with different stages of CRC (healthy, polyps, CRC)
+2. FGFP Project - 
+
+ML Approach:
+Generalized Linear Models (GLMs)
+Nested Model Comparison 
+
+Validation:
