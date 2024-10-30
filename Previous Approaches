@@ -35,26 +35,29 @@ Bacteria: by phylum: Bacteroidetes, Firmicutes, Proteobacteria, Actinobacteria, 
 adundance, alerations in abundance based on disease status
 
 -----------------------------------------------------------------------------------------------------------------------------
-Data Preprocessing/Transformation:
-fastp - applied to Raw Metagenomic Data; removal of low-quality (quality score <20), low-complexity (more than 5 'N' bases) and adapter-containing reads (shorter than 45 bases)
-Bowtie2 - removal of non-human reads (mapping against reference human genome)
-MetaPhlAn 4 - conversion of reads into species-level genome bins (SGBs) 
-arcsine-aquare root transformation - proportional comparability across studies
+2. Basecalling/Denoising:
+   fastp - applied to Raw Metagenomic Data; removal of low-quality (quality score <20), low-complexity (more than 5 'N' bases) and 
+         adapter-containing reads (shorter than 45 bases)
+3. Read Mapping:
+   Bowtie2 - removal of non-human reads (mapping against reference human genome)
 
-Feature Selection: 
-disease-associated microbial signatures - multivariate MaAsLin 2 analysis (q-value < 0.05; adjustments for demographic confounders (age, sex, BMI))
-species-level abundance profiles - Jensen-Shannon divergence & PAM clustering (determination of optimal clusters) 
-
-Dataset Division (Training, Testing): 
-10x Cross Validation
-
-ML Approach:
-Random Forest Model - analysis of disease correlation with microbial taya to estimate GMHI (Gut Microbiome Health Index); averaging predictions from 10 classifiers
-LASSO Analysis - fine-tuning and constrain features
-
-Validation:
-Wilcoxon rank-sum tests & Benjamini Hochberg adjustment for q-values
-ROC (receiver operating characteristic) analysis (R pROC package); main measure: AUC (area under curve)
+4. Downstream Analysis:
+   MetaPhlAn 4 - conversion of reads into species-level genome bins (SGBs) 
+   Arcsine-aquare root transformation - proportional comparability across studies
+   Feature Selection: 
+      disease-associated microbial signatures - multivariate MaAsLin 2 analysis (q-value < 0.05; adjustments for demographic 
+      confounders (age, sex, BMI))
+      species-level abundance profiles - Jensen-Shannon divergence & PAM clustering (determination of optimal clusters) 
+   ML Approach:
+      Random Forest Model - analysis of disease correlation with microbial taya to estimate GMHI (Gut Microbiome Health Index); 
+      averaging predictions from 10 classifiers
+      LASSO Analysis - fine-tuning and constrain features
+      
+      *Dataset Division (Training, Testing): 
+         10x Cross Validation
+   Validation:
+      Wilcoxon rank-sum tests & Benjamini Hochberg adjustment for q-values
+      ROC (receiver operating characteristic) analysis (R pROC package); main measure: AUC (area under curve)
 
 
 
