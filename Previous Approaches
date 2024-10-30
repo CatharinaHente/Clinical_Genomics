@@ -1,3 +1,5 @@
+Overall notes:
+
 Steps (from presentation): 
 1. Sequencing Data Generation
 2. Basecalling/Denoising
@@ -6,11 +8,14 @@ Steps (from presentation):
 4. Downstream Analysis - refers to the steps taken after raw genomic data has been processed. It involves tasks like identifying 
    genetic variants, analyzing gene expression, classifying species in a sample, or linking genes to biological functions. 
 
+Confounders - variables that affect both the independent variable (what you're studying) and the dependent variable (the outcome), 
+               potentially leading to misleading results. 
+
 Study #1 -  A population-scale analysis of 36 gut microbiome studies reveals universal species signatures for common diseases
 -----------------------------------------------------------------------------------------------------------------------------
 about the Dataset:
 
-Sample type: fecal
+Sample type: stool samples
 
 Number of patients: 3728 patients with 28 disease/unhealthy statuses and 2586 healthy controls 
        - from 13 provinces, no abnormal BMI
@@ -64,9 +69,54 @@ adundance, alerations in abundance based on disease status
 Study #2 - Consistent signatures in the human gut microbiome of old- and young-onset colorectal cancer
 ------------------------------------------------------------------------------------------------------
 about the Dataset: 
-[...]
+
+Sample type: stool samples
+
+Number of patients:  Guangzhou cohort: 460 (CRC patients, single hospital) - 95 under age 40, 167 under age 50 - tot ages 21 to 88
+                     *Fudan control cohort: 200 samples: old/young control, o/yCRC - each 50
+                     *Public control cohort: 600 CRC, 662 controls (only MetaPhlAn3 taxonomic and HUMAnN3 functional profiles)
+
+Diseases: yCRC and oCRC (young and old onset colorectal cancer)
+             68 - stage I, 147 - stage II, 166 - stage III, 79 - stage IV
+
+
+Bacteria:by species: Fusobacterium nucleatum, Bacteroides fragilis, Escherichia coli, Clostridium symbiosum, Peptostreptococcus stomatis, 
+                     Parvimonas micra, Hungatella hathewayi, Eggerthella lenta, Erysipelatoclostridium ramosum, Flavonifractor plautii,
+                     Eubacterium rectale, Ruminococcus bicirculans, Alistipes indistinctus, Clostridium aldenense, Eisenbergiella tayi,
+                     (*age correlation tested)Prevotella stercorea, Bifidobacterium dentium, Prevotella copri, Prevotella bivia 
+         by genus: Fusobacterium, Bacteroides, Escherichia, Clostridium, Peptostreptococcus, Parvimonas, Hungatella, Eggerthella, 
+                  Erysipelatoclostridium, Flavonifractor, Eubacterium, Ruminococcus, Alistipes, Eisenbergiella, Prevotella, Bifidobacterium
+         by phylum: Fusobacteria, Bacteroidetes, Proteobacteria, Firmicutes, Actinobacteria
 ------------------------------------------------------------------------------------------------------
-[...]
+3.Read Mapping:
+   Bowtie2 (using hg38), (controls MetaPhlAn3, HUMAnN3)
+4.Downstream Analysis: 
+   *Alpha diversity - diversity within a specific area or ecosystem, focusing on the number of species (richness) and their 
+                     relative abundances.
+                     -> Shannon index - measures biodiversity by quantifying the uncertainty in predicting the species of a randomly selected individual, 
+                        considering both the number of species and their relative abundances
+   *Beta diversity - the differences in species composition between different ecosystems or habitats, reflects how species diversity 
+                     changes from one environment to another.
+                     -> Bray-Curtis distance - measures compositional dissimilarity between two samples based on species abundance 
+                        (ranges 0 (identical) to 1 (completely different)) 
+   Strain-level analysis of F.nucleatum, B.fragilis and E.coli:
+      StrainPhlAn3 -  tool identifies and analyzes microbial strains from metagenomic data, integrating read mapping and variant calling
+      inStrain - tool for analyzing and characterizing microbial genomes, particularly focusing on strain-level variations within metagenomic 
+               datasets, (Strain reconstruction - variant detection - community analysis)
+   ML Approach:
+      LASSO  - regression analysis method that performs both variable selection and regularization to enhance the prediction accuracy and 
+            interpretability of statistical models
+      AUROC -  performance measurement for classification models, particularly in binary classification tasks, quantifies the ability of a 
+            model to discriminate between positive and negative classes.
+      MaAsLin2 - statistical tool, analyzes associations between microbial community compositions and metadata variables in microbiome studies.
+   Validation:
+      Wilcoxon-Mann-Whitney test - non-parametric statistical test used to compare the distributions of two independent samples, alternative to
+                     t-test when the data do not meet the assumptions of normality
+      Benjamini-Hochberg procedure - statistical method used to control the false discovery rate (FDR) when performing multiple hypothesis tests.
+      PERMANOVA - statistical test, determines if there are significant differences in community composition among groups based on multivariate 
+            data, such as species abundance or ecological metrics
+
+
 
 
 
