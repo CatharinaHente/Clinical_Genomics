@@ -1,7 +1,39 @@
+Steps (from presentation): 
+1. Sequencing Data Generation
+2. Basecalling/Denoising
+3. Read Mapping - the process of aligning short DNA sequences (reads) from a sample to a reference genome to determine their origin. 
+   It works by comparing the reads to a known database, accounting for possible mismatches or errors
+4. Downstream Analysis - refers to the steps taken after raw genomic data has been processed. It involves tasks like identifying 
+   genetic variants, analyzing gene expression, classifying species in a sample, or linking genes to biological functions. 
+
 Study #1 -  A population-scale analysis of 36 gut microbiome studies reveals universal species signatures for common diseases
 -----------------------------------------------------------------------------------------------------------------------------
 about the Dataset:
-[...]
+
+Sample type: fecal
+
+Number of patients: 3728 patients with 28 disease/unhealthy statuses and 2586 healthy controls 
+       - from 13 provinces, no abnormal BMI
+
+Diseases: breast (BC), colorectal (CRC), yCRC (young onset), oCRC (old onset), athero-sclerotic cardiovascular disease(ACVD),
+          atrial fibrillation (AF), bone mass loss (BL), carotid atherosclerosis (CA), hypertension (HTN), prehypertension (pHTN), 
+          metabolically unhealthy obese (MUO), obesity (OB), type 2 diabetes (T2D), prediabetes (pT2D), treatment-naive type 2 diabetes(tnT2D), 
+          Crohn's disease(CD), ulcerative colitis (UC), irritable bowel syndrome (IBS), polycystic ovarian syndrome (PCOS), 
+          ankylosing spondylitis (AS), Behcet's disease(BD), Graves' disease (GD), myasthenia gravis (MG), rheumatoid arthritis (RA), 
+          systemic lupus erythematosus (SLE), Vogt-Koyanagi-Harada diseases (VKH), pulmonary tuberculosis (PT), liver cirrhosis (LC), 
+          autism spectrum disorder (ASD), schizophrenia (SCZ),Parkinson's disease (PD), end-stage renal disease (ESRD)
+
+Bacteria: by phylum: Bacteroidetes, Firmicutes, Proteobacteria, Actinobacteria, Fusobacteria, Verrucomicrobia, others
+          by genus: Phocaeicola, Bacteroides, Prevotella, Faecalibacterium, Alistipes, Lachnospiraceae_unk, Roseburia, Clostridium, 
+                    Ruminococcus, Bifidobacterium, Lachnospira, Mediterraneibacter, Parabacteroides, Blautia, Escherichia, 
+                    Clostridia_unclassified, Megamonas, Ruminococcaceae_unk, Phascolarctobacterium, other
+          by species: Phocaeicola vulgatus, Prevotella copri clade A, Faecalibacterium prausnitzii, Bacteroides uniformis, 
+                    Phocaeicola plebeius, Bacteroides stercoris, Phocaeicola dorei, Alistipes putredinis, Eubacterium rectale,
+                    Escherichia coli, Bacteroides ovatus, Bacteroides fragilis, Phocaeicola coprocola, Prevotella copri clade C,
+                    Megamonas funiformis, Ruminococcus bromii, Bacteroides thetaiotaomicron, Roseburia faecis, Phocaeicola massiliensis,
+                    Parabacteroides distasonis, other
+adundance, alerations in abundance based on disease status
+
 -----------------------------------------------------------------------------------------------------------------------------
 Data Preprocessing/Transformation:
 fastp - applied to Raw Metagenomic Data; removal of low-quality (quality score <20), low-complexity (more than 5 'N' bases) and adapter-containing reads (shorter than 45 bases)
