@@ -123,24 +123,46 @@ Bacteria:by species: Fusobacterium nucleatum, Bacteroides fragilis, Escherichia 
 Study #3 - Microbiome confounders and quantitative profiling challenge predicted microbial targets in colorectal cancer development
 -----------------------------------------------------------------------------------------------------------------------------------
 about the Dataset:
-[...]
+
+Sample type: stool samples
+
+Number of patients: 589
+
+Diseases: colorectal cancer CRC different stages
+            control: compare to 15 published studies (4439 patients in total)
+
+Control for confounder: transit time, fecal calprotectin (intestinal inflammation), body mass index
+
+Bacteria:by species: Fusobacterium nucleatum, Parvimonas micra, Solobacterium moorei, Escherichia/Shigella coli, 
+                     Porphyromonas asaccharolytica, Peptostreptococcus anaerobius, Anaerococcus vaginalis, Prevotella intermedia, 
+                     Faecalibacterium prausnitzii, Methanobrevibacter smithii, Roseburia intestinalis, Alistipes onderdonkii,
+                     Bifidobacterium catenulatum, Dialister pneumosintes, Gordonibacter pamelaeae, Harryflintia acetispora,
+                     Mogibacterium pumilum
+         by genus: Fusobacterium, Parvimonas, Solobacterium, Escherichia (includes Shigella), Porphyromonas, Peptostreptococcus, 
+                     Anaerococcus, Prevotella, Faecalibacterium, Methanobrevibacter, Roseburia, Alistipes, Bifidobacterium, Dialister,
+                     Gordonibacter, Harryflintia, Mogibacterium
+         by phylum: Fusobacteria, Firmicutes, Proteobacteria, Bacteroidetes, Actinobacteria, Euryarchaeota
+
+16S ribosomal RNA amplicon sequencing
 -----------------------------------------------------------------------------------------------------------------------------------
-Data Preprocessing/Transformation:
-Relative Microbiome Matrix (RMP) - 
-CLR (center-log-ratio) Transformation - 
 
-Feature Selection: 
-Biomarker Selection - relevant microbial taxa at species and genus level were picked out
-Dirichlet Multinomial Model - enterotyping/determine community types (Bact1, Bact2, Prev, and Rum clusters)
-Spearman and Kendall's tau correlations - determination of association across species abundances, fecal calprotectin, moisture content
-
-Dataset Division (Training, Testing): 
-subdivision into 2 cohorts - LCPM Project, FGFP Project
-1. LCPM Project - cohort with data from patients with different stages of CRC (healthy, polyps, CRC)
-2. FGFP Project - 
-
-ML Approach:
-Generalized Linear Models (GLMs)
-Nested Model Comparison 
-
-Validation:
+4. Downstream analysis:
+   Relative Microbiome Matrix (RMP) -  represent the composition of microbial communities in a standardized format.
+   CLR (center-log-ratio) Transformation - statistical method used to analyze compositional data, such as microbial community compositions.
+   Feature Selection: 
+      Biomarker Selection - relevant microbial taxa at species and genus level were picked out
+      Dirichlet Multinomial Model - enterotyping/determine community types (Bact1, Bact2, Prev, and Rum clusters)
+      Spearman and Kendall's tau correlations - determination of association across species abundances, fecal calprotectin, moisture content
+  * Dataset Division (Training, Testing): 
+      subdivision into 2 cohorts - LCPM Project, FGFP Project
+      1. LCPM Project - cohort with data from patients with different stages of CRC (healthy, polyps, CRC)
+      2. FGFP Project - population-wide microbiota monitoring effort, representing one of the largest and best characterized fecal 
+            microbiota database currently available. Its extensive metadata including health and lifestyle allowed the identifi- cation 
+            of 69 factors associated with microbiota variation (microbiota covariates)
+   ML Approach:
+      Generalized Linear Models (GLMs) - flexible generalization of ordinary linear regression models that allow for response variables 
+         to have distributions other than a normal distribution
+      Nested Model Comparison - statistical method for comparing two models where one is a simpler version of the other.
+   Validation:
+      ANOVA - statistical method used to determine whether there are statistically significant differences between the means of three 
+         or more groups
