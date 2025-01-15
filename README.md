@@ -13,6 +13,11 @@ Problem: Cancer is among leading causes of death worldwide, with colorectal canc
           
 Goal: implement and train an efficient machine learning algorithm to predict a patient having CRC based on the patient's gut microbiome data
 
+Folders on the github: methods analysis - our analysis of methods and data used in the studies provided to us, first steps in selection of methods and dataset to use
+                       code from study #1 - copy of the original code used to work with the dataset in study 1 (in R) and our translation of that code into Python
+                       code from study #3 - copy of the original code used to work with the dataset in study 3 (in R) and our translation of that code into Python
+                       data - the dataset that we have chosen to use (from study #1) and our code working with that data (preparation and XGboost)
+
 
 
 
