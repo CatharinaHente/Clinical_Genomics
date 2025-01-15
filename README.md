@@ -12,3 +12,21 @@ Problem: Cancer is among leading causes of death worldwide, with colorectal canc
           diagnosis as well as selection of patients prone to disease for more vigorous screenings 
           
 Goal: implement and train an efficient machine learning algorithm to predict a patient having CRC based on the patient's gut microbiome data
+
+Key ideas:
+
+Key results:
+
+Strengths: 
+
+Weaknesses:
+
+
+
+Project overview (approach, methods, findings):
+
+
+Reflection/improvement ideas:
+
+
+Reading materials:
